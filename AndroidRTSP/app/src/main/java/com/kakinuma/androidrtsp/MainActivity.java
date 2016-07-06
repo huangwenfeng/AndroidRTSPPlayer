@@ -1,7 +1,5 @@
 package com.kakinuma.androidrtsp;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
@@ -28,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (mLibVLC != null) {
 //				String pathUri = "rtsp://192.168.1.1/MJPG?W=640&H=360&Q=50&BR=3000000";  //流媒体地址
-				String pathUri = "file:////sdcard/DCIM/Camera/20140530_210748.mp4";   //本地地址
+				String pathUri = "file:////sdcard/DCIM/Camera/test.mp4";   //本地地址
                 mLibVLC.playMyMRL(pathUri);
             }
         } catch (LibVlcException e) {
@@ -43,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                     if (msg.getData().getInt("data") > 0) {
                         Intent intent = new Intent();
                         intent.setClass(getApplicationContext(),
-                                VideoPlayerActivity.class);
+                                PlayerActivity.class);
                         startActivity(intent);
                     }
                     break;
